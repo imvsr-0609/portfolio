@@ -15,7 +15,7 @@
 body {
 	width: 100vw;
 	height: 100vh;
-	color: rgba(0, 0, 0, 0.6);
+	color: rgba(0, 0, 0, 0.7);
 }
 
 .portfolio__wrapper {
@@ -172,11 +172,11 @@ body {
 	margin-left: 0.6rem;
 }
 
-.experience__section {
+section {
 	padding: 2.5rem;
 }
 
-.experience__heading {
+.heading {
 	font-size: 1.4rem;
 	color: black;
 }
