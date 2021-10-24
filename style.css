@@ -166,7 +166,7 @@ body {
 		),
 		url('./assets/img/header_bg.jpg');
 	background-repeat: no-repeat;
-	background-position: right;
+	background-position: top right;
 	background-attachment: fixed;
 	background-size: cover;
 	position: relative;
@@ -482,6 +482,11 @@ textarea {
 	overflow: hidden;
 	border-bottom-left-radius: 0.5rem;
 	border-bottom-right-radius: 0.5rem;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+.project__card:hover {
+	box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 25px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card__img {
@@ -517,10 +522,16 @@ textarea {
 }
 
 @media only screen and (max-width: 1248px) {
+	html {
+		font-size: 82.5%;
+	}
+	.resume__button {
+		font-size: 1rem;
+	}
 	.portfolio__sidebar {
 		position: fixed;
 		text-align: center;
-		width: 16rem;
+		width: 20rem;
 		top: 0;
 		left: 0;
 		z-index: 99;
@@ -537,7 +548,13 @@ textarea {
 	}
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 840px) {
+	html {
+		font-size: 72.5%;
+	}
+	.resume__button {
+		font-size: 0.8rem;
+	}
 	.about__section {
 		padding: 5rem 2rem;
 	}
@@ -593,6 +610,7 @@ textarea {
 	.education__card {
 		display: flex;
 		flex-direction: column;
+		text-align: left;
 	}
 	section .header {
 		text-align: center;
