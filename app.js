@@ -1,4 +1,7 @@
 const typewriter = document.querySelector('.typewriter');
+const hamburger = document.querySelector('[data-hamburger-btn');
+const sidebar = document.querySelector('.portfolio__sidebar');
+const sidebarLink = document.querySelectorAll('.sidebar__link');
 
 var TxtType = function (el, toRotate, period) {
 	this.toRotate = toRotate;
@@ -58,3 +61,13 @@ window.onload = function () {
 	css.innerHTML = '.typewriter > .wrap { border-right: 0.08em solid #fff}';
 	document.body.appendChild(css);
 };
+
+hamburger.addEventListener('click', () => {
+	sidebar.classList.toggle('sidebar__active');
+});
+
+sidebarLink.forEach((link) =>
+	link.addEventListener('click', () => {
+		sidebar.classList.remove('sidebar__active');
+	}),
+);

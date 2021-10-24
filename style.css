@@ -48,10 +48,6 @@ body {
 	justify-content: start;
 	align-items: center;
 	position: relative;
-	/* position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 99; */
 }
 
 .hamburger__button {
@@ -70,6 +66,7 @@ body {
 	z-index: 99;
 	margin: 1rem 0 0 1rem;
 	cursor: pointer;
+	display: none;
 }
 
 .sidebar__photo {
@@ -114,6 +111,9 @@ body {
 .sidebar__link a {
 	text-decoration: none;
 	color: inherit;
+}
+.sidebar__link a:active {
+	color: #2d98f0;
 }
 
 .sidebar__link::before {
@@ -167,15 +167,19 @@ body {
 		url('./assets/img/header_bg.jpg');
 	background-repeat: no-repeat;
 	background-position: right;
+	background-attachment: fixed;
 	background-size: cover;
 	position: relative;
 	padding: 5rem;
 }
 
 .about__section__details {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 	position: absolute;
 	top: 35%;
-	width: 100%;
+	width: 90vw;
 	max-width: 40rem;
 }
 
@@ -189,6 +193,7 @@ body {
 	margin: 0.5rem 0;
 	line-height: 1.4rem;
 	opacity: 0.85;
+	padding-right: 1rem;
 }
 
 .about__icons {
@@ -205,6 +210,7 @@ body {
 }
 
 .resume__button {
+	width: 12rem;
 	background-color: white;
 	padding: 0.6rem 1rem;
 	border: 1.5px solid white;
@@ -230,9 +236,7 @@ body {
 section {
 	padding: 2.5rem;
 }
-/* section .header {
-	text-align: center; 
-}  */
+
 .heading {
 	font-size: 1.4rem;
 	color: black;
@@ -377,7 +381,7 @@ textarea {
 }
 
 .education__left {
-	width: 15rem;
+	max-width: 15rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
@@ -447,6 +451,10 @@ textarea {
 	align-content: center;
 	grid-gap: 1rem;
 }
+.skills__wrapper a {
+	display: grid;
+	place-items: center;
+}
 
 .skills__wrapper img {
 	object-fit: contain;
@@ -463,6 +471,10 @@ textarea {
 	grid-gap: 1.5rem;
 }
 
+.projects__section {
+	background-color: #f2f3f7;
+}
+
 .project__card {
 	display: flex;
 	height: 25rem;
@@ -475,7 +487,7 @@ textarea {
 .card__img {
 	width: 200%;
 	height: 14rem;
-	transform: skewY(-3deg) translateY(-1.2rem);
+	transform: skewY(-2deg) translateY(-1.5rem);
 }
 
 .card__img img {
@@ -495,4 +507,97 @@ textarea {
 	text-align: center;
 	padding: 1rem;
 	font-weight: 600;
+}
+
+.portfolio__footer {
+	padding: 2rem;
+	background-color: #f2f3f7;
+	text-align: center;
+	font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 1248px) {
+	.portfolio__sidebar {
+		position: fixed;
+		text-align: center;
+		width: 16rem;
+		top: 0;
+		left: 0;
+		z-index: 99;
+		transform: translateX(-100%);
+		transition: all 0.3s ease-in-out;
+	}
+
+	.hamburger__button {
+		display: block;
+	}
+
+	.sidebar__active {
+		transform: translateX(0%);
+	}
+}
+
+@media only screen and (max-width: 980px) {
+	.about__section {
+		padding: 5rem 2rem;
+	}
+	.about__section__details {
+		top: 30%;
+	}
+	section {
+		padding: 1.5rem;
+	}
+
+	.contact__wrapper {
+		display: flex;
+		flex-direction: column;
+		padding: 2rem 0;
+	}
+	.skills__wrapper {
+		padding: 4rem 1rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+		justify-content: center;
+		align-content: center;
+		grid-gap: 1rem;
+	}
+	.education__wrapper {
+		padding: 2rem 0.5rem;
+		max-width: 65rem;
+		margin: 0 auto;
+	}
+	.experience__wrapper {
+		padding: 2rem 0.5rem;
+	}
+	.experience__card,
+	.education__right {
+		padding-right: 0;
+	}
+
+	.education__left {
+		max-width: 10rem;
+		padding: 1rem 0;
+		border: none;
+	}
+	.education__left::before,
+	.education__left::after {
+		display: none;
+	}
+	.education__left h3 {
+		text-align: left;
+	}
+
+	.portfolio__footer {
+		padding: 1.5rem;
+	}
+	.education__card {
+		display: flex;
+		flex-direction: column;
+	}
+	section .header {
+		text-align: center;
+	}
+	.card__img {
+		transform: skewY(-2deg) translateY(-1.8rem);
+	}
 }
