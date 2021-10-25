@@ -489,10 +489,36 @@ textarea {
 	box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 25px 0 rgba(0, 0, 0, 0.2);
 }
 
+.project__link {
+	width: 100%;
+	transform: skewY(2deg);
+}
+
+.project__icons {
+	display: flex;
+	position: absolute;
+	bottom: 1rem;
+	left: 0.5rem;
+	color: white;
+	opacity: 0;
+	transition: all 0.3s ease-in-out;
+}
+
+.project__icons > * {
+	margin: 0.3rem;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+.project__card:hover .project__icons {
+	opacity: 1;
+}
+
 .card__img {
 	width: 200%;
 	height: 14rem;
 	transform: skewY(-2deg) translateY(-1.5rem);
+	position: relative;
 }
 
 .card__img img {
@@ -550,7 +576,7 @@ textarea {
 
 @media only screen and (max-width: 840px) {
 	html {
-		font-size: 72.5%;
+		font-size: 75.5%;
 	}
 	.resume__button {
 		font-size: 0.8rem;

@@ -1,7 +1,14 @@
 const typewriter = document.querySelector('.typewriter');
 const hamburger = document.querySelector('[data-hamburger-btn');
 const sidebar = document.querySelector('.portfolio__sidebar');
+const hamburgerIcon = document.querySelector('[data-hamburger-icon');
 const sidebarLink = document.querySelectorAll('.sidebar__link');
+const contactForm = document.querySelector('[data-contact-form]');
+const contactName = document.querySelector('[data-contact-name]');
+const contactEmail = document.querySelector('[data-contact-email]');
+const contactSubject = document.querySelector('[data-contact-subject]');
+const contactMessage = document.querySelector('[data-contact-message]');
+const resumeButton = document.querySelector('[data-resume-download]');
 
 var TxtType = function (el, toRotate, period) {
 	this.toRotate = toRotate;
@@ -64,6 +71,7 @@ window.onload = function () {
 
 hamburger.addEventListener('click', () => {
 	sidebar.classList.toggle('sidebar__active');
+	hamburgerIcon.classList.toggle('fa-times');
 });
 
 sidebarLink.forEach((link) =>
@@ -71,3 +79,18 @@ sidebarLink.forEach((link) =>
 		sidebar.classList.remove('sidebar__active');
 	}),
 );
+
+contactForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+	window.open(
+		`mailto:imvdntsingh@gmail.com?subject=${contactSubject.value}&body=${contactMessage.value}`,
+	);
+	contactForm.reset();
+});
+
+// resumeButton.addEventListener('click', () => {
+// 	window.open(
+// 		'file:///D://Certificates/Resume/Vedant_Singh_Resume.pdf',
+// 		'Download',
+// 	);
+// });
