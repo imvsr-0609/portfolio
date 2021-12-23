@@ -9,6 +9,8 @@ const contactEmail = document.querySelector('[data-contact-email]');
 const contactSubject = document.querySelector('[data-contact-subject]');
 const contactMessage = document.querySelector('[data-contact-message]');
 const resumeButton = document.querySelector('[data-resume-download]');
+const sections = document.querySelectorAll('section[id]');
+const body = document.querySelector('[data-portfolio-body');
 
 var TxtType = function (el, toRotate, period) {
 	this.toRotate = toRotate;
@@ -53,7 +55,27 @@ TxtType.prototype.tick = function () {
 	}, delta);
 };
 
-window.onload = function () {
+body.addEventListener('scroll', () => {
+	let scrollY = body.scrollTop;
+
+	sections.forEach((current) => {
+		const sectionHeight = current.offsetHeight;
+		const sectionTop = current.offsetTop - 50;
+		sectionId = current.getAttribute('id');
+
+		if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+			document
+				.querySelector('.sidebar__link a[href*=' + sectionId + ']')
+				.classList.add('active');
+		} else {
+			document
+				.querySelector('.sidebar__link a[href*=' + sectionId + ']')
+				.classList.remove('active');
+		}
+	});
+});
+
+window.onload = () => {
 	var elements = document.getElementsByClassName('typewriter');
 	for (var i = 0; i < elements.length; i++) {
 		var toRotate = elements[i].getAttribute('data-type');
